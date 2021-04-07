@@ -5,20 +5,25 @@ window.addEventListener("load", function() {
 
 })
 
-
-document.querySelector("#slider").addEventListener("click", function() {
-	Template.yourTemplate.events({
-		'change input[type=range]': function(event){
-		   var sliderValue = event.currentTarget.value;
-		   Session.set('sliderValueIs', sliderValue);
+// document.querySelector("#slider").addEventListener("click", function() {
+// 	Template.yourTemplate.events({
+// 		'change input[type=range]': function(event){
+// 		   var sliderValue = event.currentTarget.value;
+// 		   Session.set('sliderValueIs', sliderValue);
+// 		var final_vol = document.getElementById("slider").value / 100;
+// 		   document.getElementById('player1').volume = final_vol;
+// 		   var val = document.getElementById("slider").value;
+// 		   document.querySelector("#volume").innerHTML = val + "%";
+// 		}
+// 	})
+// });
 		//    var final_vol = sliderValue / 100;
-		var final_vol = document.getElementById("slider").value / 100;
-		   document.getElementById('player1').volume = final_vol;
 		//    document.querySelector("#volume").innerHTML = sliderValue + "%";
-		   var val = document.getElementById("slider").value;
-		   document.querySelector("#volume").innerHTML = val + "%";
-		}
-	})
+	
+document.querySelector("#slider").addEventListener("change", function() {
+	var val = document.getElementById("slider").value;
+	video.volume = val / 100;
+	document.querySelector("#volume").innerHTML = val + "%";
 });
 
 document.querySelector("#play").addEventListener("click", function() {
